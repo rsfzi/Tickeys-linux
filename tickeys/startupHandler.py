@@ -4,7 +4,7 @@
 from __future__ import with_statement
 from logger import logger
 import os
-import commands
+import subprocess
 from config import configer
 
 
@@ -25,7 +25,7 @@ def delete_startup_linux():
             command_list.append("rm %s/%s" % (dirname, DesktopEntryName))
         command_str = " | ".join(command_list)
         command = "gksudo --message password " + command_str
-        commands.getstatusoutput(command)
+        subprocess.check_ouptut(command)
         configer.autostart = False
         configer.save_config()
     except Exception, e:
@@ -37,7 +37,7 @@ def delete_startup_linux():
 def command_exist(command='gksu'):
     command += ' --help'
     try:
-        if commands.getstatusoutput(command)[0] != 32512:
+        if subprocess.check_ouptut(command)[0] != 32512:
             logger.debug(command + " exist")
             return True
         else:
@@ -99,7 +99,7 @@ Comment=Instant audio feedback when typing. For Linux.
             command_list.append('chmod 777 %s' % filename)
         command_str = " | ".join(command_list)
         command = "gksudo --message password " + command_str
-        commands.getstatusoutput(command)
+        subprocess.check_ouptut(command)
         configer.autostart = True
         configer.save_config()
     except Exception, e:

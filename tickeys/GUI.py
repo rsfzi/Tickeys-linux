@@ -204,7 +204,7 @@ def show_notify(notify_content=""):
         icon_file_path = os.getcwd() + '/tickeys.png'
         notify = notify2.Notification(title, notify_content, icon_file_path)
         notify.show()
-    except Exception, e:
+    except Exception as e:
         logger.exception(e)
         logger.error("show notify fail")
 
@@ -221,15 +221,15 @@ def check_update_and_notify():
         logger.info("Version checking...")
         r = urllib.urlopen('http://billbill.sinaapp.com/tickeys')
         return_msg = json.loads(r.read())
-        print return_msg
+        print(return_msg)
         if return_msg["version"] <= __version__:
             logger.debug("Version checking success. It is the latest version...")
         else:
             # show update notify
             notify_content = _("Update Notify") % (return_msg["version"], return_msg["update"])
-            print notify_content
+            print(notify_content)
             show_notify(notify_content)
-    except Exception, e:
+    except Exception as e:
         logger.exception(e)
         logger.error("Version checking fail:" + str(e))
 

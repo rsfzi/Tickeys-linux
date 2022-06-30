@@ -1,5 +1,5 @@
 # coding: utf-8
-import commands
+import subprocess
 
 from logger import logger
 from threading import Thread
@@ -12,13 +12,13 @@ gui_id = os.environ["HOME"] + "/.tickeys/tickeys_GUI_window_id"
 
 def save_terminal_window_id():
     try:
-        stat, terminalId = commands.getstatusoutput('xdotool getactivewindow')
+        stat, terminalId = subprocess.check_output('xdotool getactivewindow')
         with open(terminal_id, "w+") as f:
             if stat == 0:
                 f.write(terminalId)
             else:
                 f.write(0)
-    except Exception, e:
+    except Exception as e:
         logger.error("Save terminal window id fail:" + str(e))
 
 
@@ -32,23 +32,23 @@ def hide_terminal():
         terminalId = read_terminal_window_id()
         if not terminalId:
             return
-        commands.getstatusoutput(
+        subprocess.check_output(
             "xdotool windowactivate --sync %s" % terminalId)
-        commands.getstatusoutput(
+        subprocess.check_output(
             "xdotool getactivewindow windowunmap")
-    except Exception,e:
+    except Exception as e:
         logger.error(str(e))
 
 
 def save_GUI_window_id():
     try:
-        stat, GUIID = commands.getstatusoutput('xdotool getactivewindow')
+        stat, GUIID = subprocess.check_output('xdotool getactivewindow')
         with open(gui_id, "w+") as f:
             if stat == 0:
                 f.write(GUIID)
             else:
                 f.write(0)
-    except Exception, e:
+    except Exception as e:
         logger.error("Save GUI window id fail:" + str(e))
 
 
@@ -60,8 +60,8 @@ def read_GUI_window_id():
 def hide_GUI():
     try:
         GUIID = read_GUI_window_id()
-        commands.getstatusoutput('xdotool windowunmap --sync %s' % GUIID)
-    except Exception, e:
+        subprocess.check_output('xdotool windowunmap --sync %s' % GUIID)
+    except Exception as e:
         logger.error(str(e))
 
 
@@ -85,9 +85,9 @@ def show_GUI():
         else:
             # read window ids
             command = "xdotool windowmap --sync %s && xdotool windowactivate --sync %s" % (GUIID, GUIID)
-            stat, output = commands.getstatusoutput(command)
+            stat, output = subprocess.check_output(command)
             return str(stat)
-    except Exception, e:
+    except Exception as e:
         logger.error(str(e))
         return '256'
 
@@ -98,5 +98,5 @@ def check_tickeys_running_status():
     if stat != "0":
         return False
     else:
-        print "Tickeys is already running, show it"
+        print("Tickeys is already running, show it")
         return True

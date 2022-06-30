@@ -3,7 +3,7 @@
 block_cipher = None
 
 a = Analysis(
-    ['./tickeys/run.py'],
+    ['./tickeys/run.py', './tickeys/windowManager.py', './tickeys/GUI.py'],
     pathex=['./tickeys'],
 #    binaries=[
 #        ('lib/64/libmodplug.so.1',"."),
