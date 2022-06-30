@@ -103,7 +103,7 @@ Comment=Instant audio feedback when typing. For Linux.
         configer.autostart = True
         configer.save_config()
     except Exception as e:
-        print e
+        print(e)
         logger.debug("Add to startup fail:" + str(e))
         return False
     return True

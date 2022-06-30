@@ -71,7 +71,7 @@ class GtkTray():
         return menu
 
     def on_show(self, widget=None, data=None):
-        print "show the UI"
+        print("show the UI")
         show_GUI()
 
     def on_quit(self, widget, data=None):

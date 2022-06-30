@@ -53,9 +53,9 @@ def check_system():
 
 
 def print_help_msg():
-    print "Tickeys will run GUI by default"
-    print "Usage: -c     ---CLI mode"
-    print "       -g     ---GUI mode"
+    print("Tickeys will run GUI by default")
+    print("Usage: -c     ---CLI mode")
+    print("       -g     ---GUI mode")
 
 
 def main():
