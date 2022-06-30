@@ -130,7 +130,7 @@ Builder.load_string(('''
         color: 1, 1, 1, 1
         font_size: 17
         width: root.width/6.0 + 60
-        text: '%s：'
+        text: '%s:'
     Switch:
         size_hint_x: None
         width: 40
@@ -193,7 +193,7 @@ Builder.load_string(('''
         color: 0.8, 0.8, 0.8, 1
         font_size: 20
         size_hint_x: None
-        text: "%s： Bill (billo@qq.com)"
+        text: "%s: Bill (billo@qq.com); Fork by ViktorWalter "
         width: root.width/3.0
         border: 1,1,1,1
         on_touch_move:

@@ -24,7 +24,33 @@ Tickeys has not been fully tested to install in different distribution yet, some
 
 ## Compile(Build from source, need requirements)：
 
-* Ubuntu: run `dependencies.sh` to install dependencies
+### Ubuntu:
+1. To compile:
+```
+git clone git@github.com:ViktorWalter/tickeys-linux-python3.git
+cd tickeys-linux-python3
+./dependencies.sh
+./build.sh #or build32.sh
+
+```
+2a. To run directly:
+
+```
+./run.sh
+```
+2b.
+  1. To build a .deb package
+
+```
+./deb.sh #or deb32.sh
+```
+
+  2. To install from the package and run
+
+```
+sudo dpkg -i ./dist/tickeys_*.deb
+```
+
 
 #### Quick Compile Install：
 
