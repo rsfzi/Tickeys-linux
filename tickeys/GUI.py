@@ -180,21 +180,21 @@ Builder.load_string(('''
         font_size: 20
         size_hint_x: None
         text: root.get_version()
-        width: root.width/3.0
+        width: root.width/2.5
     Label:
         color: 0.8, 0.8, 0.8, 1
         font_size: 20
         size_hint_x: None
         markup: True
         text: "[ref=%s]%s[/ref]"
-        width: root.width/3.0
+        width: root.width/2.5
         on_ref_press:root.open_project_website()
     Label:
         color: 0.8, 0.8, 0.8, 1
         font_size: 20
         size_hint_x: None
-        text: "%s: Bill (billo@qq.com); Fork by ViktorWalter "
-        width: root.width/3.0
+        text: "%s: Bill (billo@qq.com); ViktorWalter (>=0.3.0)"
+        width: root.width/4.5
         border: 1,1,1,1
         on_touch_move:
 ''' % (_("Volume"), _("Pitch"), _("Sound Style"), _("Sound Style Items"), _("Start at startup"), _("Quit"), _("Hide"), _("Project Website"), _("Project Website"), _("Author"))))
@@ -330,7 +330,7 @@ class InforRow(BoxLayout):
         open_new("https://github.com/BillBillBillBill/Tickeys-linux")
 
     def get_version(self):
-        return 'Version： ' + __version__
+        return 'Version: ' + __version__
 
 
 class Main(GridLayout):
