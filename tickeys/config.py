@@ -33,7 +33,7 @@ class Configer():
                 self.style = self.cf.get('options', 'style')
                 self.autostart = self.cf.get('options', 'autostart')
                 self.lang = self.cf.get('options', 'lang')
-        except Exception, e:
+        except Exception as e:
             self.init_config()
             logger.debug(e)
 

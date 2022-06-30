@@ -15,7 +15,7 @@ def run_GUI():
     try:
         from GUI import TickeysApp
         TickeysApp().run()
-    except Exception, e:
+    except Exception as e:
         logger.info("Run GUI Fail, use CLI instead..Fail msg:%s" % str(e))
         run_CLI()
 
@@ -47,7 +47,7 @@ def check_system():
             sys.exit(0)
         else:
             logger.info("System checking success. Your system is supported")
-    except Exception, e:
+    except Exception as e:
         logger.error("System checking fail:" + str(e))
         sys.exit(0)
 

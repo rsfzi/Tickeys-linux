@@ -42,7 +42,7 @@ class SoundPlayer():
                 new_sound_effect_cache.append((data, fs))
             self.sound_effect_cache = new_sound_effect_cache
 
-        except Exception, e:
+        except Exception as e:
             logger.error('Load sound files fail:' + str(e))
 
     def save_config(func):
@@ -62,7 +62,7 @@ class SoundPlayer():
             self.key_audio_map = self.schemes[style]['key_audio_map']
             self.non_unique_count = self.schemes[style]['non_unique_count']
             self.cache_sound_effect()
-        except Exception, e:
+        except Exception as e:
             logger.error(e)
 
     @save_config

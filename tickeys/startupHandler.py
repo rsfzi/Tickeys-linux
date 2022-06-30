@@ -28,7 +28,7 @@ def delete_startup_linux():
         subprocess.check_ouptut(command)
         configer.autostart = False
         configer.save_config()
-    except Exception, e:
+    except Exception as e:
         logger.debug("Delete startup fail:" + str(e))
         return False
     return True
@@ -102,7 +102,7 @@ Comment=Instant audio feedback when typing. For Linux.
         subprocess.check_ouptut(command)
         configer.autostart = True
         configer.save_config()
-    except Exception, e:
+    except Exception as e:
         print e
         logger.debug("Add to startup fail:" + str(e))
         return False

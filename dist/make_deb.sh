@@ -65,7 +65,7 @@ chmod a+x $folder_name/usr/share/app-install/desktop/Tickeys.desktop
 chown root $folder_name/usr/share/app-install/desktop/Tickeys.desktop
 
 cp Tickeys $folder_name/usr/local/bin/Tickeys
-ln -s /usr/local/bin/Tickeys $folder_name/usr/bin/tickeys
+# ln -s /usr/local/bin/Tickeys $folder_name/usr/bin/tickeys
 
 dpkg-deb -z9 -b $folder_name
 
