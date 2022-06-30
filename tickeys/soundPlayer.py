@@ -23,9 +23,9 @@ class SoundPlayer():
             (i['name'], i)
             for i in json.load(open('./Resources/data/schemes.json')))
         self.configer = configer
-        self.sound_file_list = self.schemes[self.configer.style]['files']
-        self.key_audio_map = self.schemes[self.configer.style]['key_audio_map']
-        self.non_unique_count = self.schemes[self.configer.style]['non_unique_count']
+        self.sound_file_list = self.schemes[self.configer._style]['files']
+        self.key_audio_map = self.schemes[self.configer._style]['key_audio_map']
+        self.non_unique_count = self.schemes[self.configer._style]['non_unique_count']
         self.sound_effect_cache = []
         self.channel = 1
         self.cache_sound_effect()
@@ -36,7 +36,7 @@ class SoundPlayer():
             new_sound_effect_cache = []
             for effect_file in self.sound_file_list:
                 sound_file = './Resources/data/%s/%s' % \
-                    (self.configer.style, effect_file)
+                    (self.configer._style, effect_file)
                 logger.debug('Load sound file:' + sound_file)
                 data, fs = sf.read(sound_file)
                 new_sound_effect_cache.append((data, fs))
@@ -55,9 +55,9 @@ class SoundPlayer():
     @save_config
     def set_style(self, style):
         try:
-            if self.configer.style == style:
+            if self.configer._style == style:
                 return
-            self.configer.style = style
+            self.configer._style = style
             self.sound_file_list = self.schemes[style]['files']
             self.key_audio_map = self.schemes[style]['key_audio_map']
             self.non_unique_count = self.schemes[style]['non_unique_count']
@@ -67,23 +67,23 @@ class SoundPlayer():
 
     @save_config
     def set_volume(self, volume):
-        self.configer.volume = volume
+        self.configer._volume = volume
 
     @save_config
     def set_pitch(self, pitch):
-        self.configer.pitch = pitch
+        self.configer._pitch = pitch
 
     def get_infor(self):
         return {
-            'style': self.configer.style,
-            'volume': self.configer.volume,
-            'pitch': self.configer.pitch,
+            'style': self.configer._style,
+            'volume': self.configer._volume,
+            'pitch': self.configer._pitch,
         }
 
     def play(self, key):
         if not self.key_audio_map.get(str(key)):
             self.key_audio_map[str(key)] = key % self.non_unique_count
         data, fs = self.sound_effect_cache[self.key_audio_map[str(key)]]
-        data = data * self.configer.volume
-        fs = fs * self.configer.pitch
+        data = data * self.configer._volume
+        fs = fs * self.configer._pitch
         threading.Thread(target=sd.play, args=(data, fs)).start()
