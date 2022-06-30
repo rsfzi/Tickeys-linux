@@ -13,7 +13,7 @@ requirements = [
 
 setup(name='tickeys',
       version=__version__,
-      download_url='https://github.com/BillBillBillBill/Tickeys-linux',
+      download_url='https://github.com/ViktorWalter/Tickeys-linux',
       packages=['tickeys'],
       package_dir={'tickeys': 'tickeys'},
       include_package_data=True,
