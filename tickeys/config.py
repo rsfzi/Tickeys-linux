@@ -1,4 +1,4 @@
-import ConfigParser
+import configparser
 import os
 from logger import logger
 
@@ -11,7 +11,7 @@ class Configer():
         except Exception:
             pass
         self.config_path = os.environ["HOME"] + "/.tickeys/tickeys.conf"
-        self.cf = ConfigParser.ConfigParser()
+        self.cf = configparser.ConfigParser()
         self.read_config()
 
     def init_config(self):
