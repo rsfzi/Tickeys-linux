@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 from logger import logger
 import sys
@@ -13,7 +13,7 @@ def run_GUI():
     try:
         from GUI import TickeysApp
         TickeysApp().run()
-    except Exception, e:
+    except Exception as e:
         logger.exception(e)
         logger.error("Run GUI Fail, reason:")
         os._exit(0)
@@ -39,7 +39,7 @@ def check_system():
             sys.exit(0)
         else:
             logger.info("System checking success. Your system is supported")
-    except Exception, e:
+    except Exception as e:
         logger.error("System checking fail:")
         logger.exception(e)
         sys.exit(0)
