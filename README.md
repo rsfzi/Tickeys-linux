@@ -1,7 +1,8 @@
 # tickeys-linux-python3
 
 Instant audio feedback when typing. For Linux.
-This fork converted the project to python3.
+
+This fork converts the project to Python 3.
 In addition, a lot of dirty stuff such as included binary blobs and static links to external sites has been cleaned.
 
 ![Tickeys Icon](http://img.blog.csdn.net/20150802103616846)

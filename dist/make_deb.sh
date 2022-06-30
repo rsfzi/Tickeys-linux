@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=0.2.7
+version=0.3.0
 folder_name=tickeys_$version\_amd64
 
 echo "Creating $folder_name.deb"
