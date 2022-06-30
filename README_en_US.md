@@ -1,7 +1,3 @@
-[Downlod 32 bit version tickeys_0.2.5_i386.deb：http://pan.baidu.com/s/1c2BN3Pm](http://pan.baidu.com/s/1c2BN3Pm)
-
-[Downlod 64 bit version tickeys_0.2.5_amd64.deb：http://pan.baidu.com/s/1o8AhmwM](http://pan.baidu.com/s/1o8AhmwM)
-
 Bug or question?
 
 Please tell me in issue.
@@ -26,20 +22,9 @@ https://github.com/yingDev/Tickeys
 # Install
 Tickeys has not been fully tested to install in different distribution yet, some distribution may need installing related requirements.
 
-## Download the packaged deb(suggest)
-
-* deb links：
-
-[Downlod 32 bit version tickeys_0.2.5_i386.deb：http://pan.baidu.com/s/1c2BN3Pm](http://pan.baidu.com/s/1c2BN3Pm)
-
-[Downlod 64 bit version tickeys_0.2.5_amd64.deb：http://pan.baidu.com/s/1o8AhmwM](http://pan.baidu.com/s/1o8AhmwM)
-
-* After install, find Tickeys on launcher and open it
-
 ## Compile(Build from source, need requirements)：
 
-* next operation show **execute** `sudo apt-get install python-dev python-pip python-kivy xdotool gksu`first to meet the requirements for Tickeys to run.
-* install package(Notice Version)： sudo pip install cython==0.20.2 notify2 pyinstaller==3.0 kivy==1.9.0 evdev
+* Ubuntu: run `dependencies.sh` to install dependencies
 
 #### Quick Compile Install：
 
