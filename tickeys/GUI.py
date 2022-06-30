@@ -14,7 +14,8 @@ from logger import logger
 from config import configer
 from __init__ import __version__, debug_mode
 
-import sys
+# import imp
+# import sys
 import os
 import gettext
 from ast import literal_eval
@@ -23,8 +24,9 @@ from threading import Thread
 import notify2
 from windowManager import hide_GUI, save_GUI_window_id
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+
+# imp.reload(sys)
+# sys.setdefaultencoding("utf-8")
 
 # set font
 from kivy.core.text import Label as textLabel
@@ -35,8 +37,9 @@ except Exception:
 textLabel.register("DroidSans", "./Resources/fonts/DroidSansFallbackFull.ttf")
 
 
-t = gettext.translation('tickeys', 'locale', languages=[configer.lang], fallback=True)
-_ = t.ugettext
+# print(configer._lang)
+t = gettext.translation('tickeys', 'locale', languages=[configer._lang], fallback=True)
+_ = t.gettext
 
 Builder.load_string(('''
 <Main>:
@@ -46,7 +49,7 @@ Builder.load_string(('''
     row_force_default: True
     row_default_height: 50
     spacing: 50
-    orientation: 'vertical'
+    orientation: 'lr-tb'
 
     canvas:
         Color:
@@ -78,7 +81,7 @@ Builder.load_string(('''
     Slider:
         min: 0.0
         max: 1.0
-        value: root.parent.configer.volume
+        value: root.parent.configer._volume
         width: 300
         on_value: root.setVolume(self.value)
 
@@ -93,7 +96,7 @@ Builder.load_string(('''
     Slider:
         min: 0.8
         max: 2.5
-        value: root.parent.configer.pitch
+        value: root.parent.configer._pitch
         width: 300
         on_value: root.setPitch(self.value)
 
@@ -194,7 +197,7 @@ Builder.load_string(('''
         width: root.width/3.0
         border: 1,1,1,1
         on_touch_move:
-''' % (_("Volume"), _("Pitch"), _("Sound Style"), _("Sound Style Items"), _("Start at startup"), _("Quit"), _("Hide"), _("Project Website"), _("Project Website"), _("Author"))).encode('utf-8'))
+''' % (_("Volume"), _("Pitch"), _("Sound Style"), _("Sound Style Items"), _("Start at startup"), _("Quit"), _("Hide"), _("Project Website"), _("Project Website"), _("Author"))))
 
 
 def show_notify(notify_content=""):
@@ -246,7 +249,7 @@ class EffectSpinner(Spinner):
             'Cherry_G80_3494': style_list[5],
             'drum': style_list[6]
         }
-        name = self.parent.parent.configer.style
+        name = self.parent.parent.configer._style
         return style_display_name_map.get(name, name)
 
 
@@ -301,8 +304,8 @@ class ExitAndSwitchRow(BoxLayout):
             "English": "en_US",
             "简体中文": "zh_CN"
         }
-        self.parent.configer.lang = language_map.get(language, "en_US")
-        self.parent.configer.save_config()
+        self.parent.configer._lang = language_map.get(language, "en_US")
+        self.parent.configer._save_config()
         # show popup hint
         view = ModalView(size_hint=(None, None), size=(0, 0))
         view.add_widget(Label(text=_("This will take effect next time you start"), font_size=30))
@@ -313,7 +316,7 @@ class ExitAndSwitchRow(BoxLayout):
             "en_US": "English",
             "zh_CN": "简体中文"
         }
-        lang = self.parent.configer.lang
+        lang = self.parent.configer._lang
         return lang_display_name_map.get(lang, "English")
 
     @property

@@ -21,7 +21,7 @@ class SoundPlayer():
             pass
         self.schemes = dict(
             (i['name'], i)
-            for i in json.load(file('./Resources/data/schemes.json')))
+            for i in json.load(open('./Resources/data/schemes.json')))
         self.configer = configer
         self.sound_file_list = self.schemes[self.configer.style]['files']
         self.key_audio_map = self.schemes[self.configer.style]['key_audio_map']

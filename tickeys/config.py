@@ -40,11 +40,11 @@ class Configer():
     def save_config(self):
         if not self.cf.sections():
             self.cf.add_section('options')
-        self.cf.set('options', 'volume', self._volume)
-        self.cf.set('options', 'pitch', self._pitch)
+        self.cf.set('options', 'volume', str(self._volume))
+        self.cf.set('options', 'pitch', str(self._pitch))
         self.cf.set('options', 'style', self._style)
         self.cf.set('options', 'lang', self._lang)
-        self.cf.set('options', 'autostart', self._autostart)
+        self.cf.set('options', 'autostart', str(self._autostart))
 
         with open(self.config_path, 'w') as f:
             self.cf.write(f)
