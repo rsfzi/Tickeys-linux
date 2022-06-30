@@ -30,13 +30,11 @@ Standards-Version: 3.9.2
 Package: tickeys
 Version: $version
 Section: misc
-Homepage: https://github.com/BillBillBillBill/Tickeys-linux
+Upstream homepage: https://github.com/BillBillBillBill/Tickeys-linux
 Architecture: amd64
 Installed-Size: 32253
-Description: Tickeys是一款很强大的键盘音效软件。
- Tickeys 自带了多种声音效果方案，有打字机、冒泡、机械键盘、剑气等。
- 每天都听着键盘声音是不是很烦闷，现在有了这款神器你就可以瞬间帮助自己的键盘加上逼格特效。
- 项目主页：https://github.com/BillBillBillBill/Tickeys-linux
+Description: Tickeys - audio feedback for typing.
+Current fork at: git@github.com:ViktorWalter/Tickeys-linux.git
 "
 
 echo "$deb_control" > $folder_name/DEBIAN/control
