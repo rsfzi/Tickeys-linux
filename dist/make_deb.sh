@@ -25,16 +25,16 @@ Priority: extra
 Maintainer: Bill <billo@qq.com>
 Author: Bill <billo@qq.com>
 Build-Depends: debhelper (>= 8.0.0)
-Depends: xdotool(>= 2), gksu
+Depends: xdotool(>= 2)
 Standards-Version: 3.9.2
 Package: tickeys
 Version: $version
 Section: misc
-Upstream homepage: https://github.com/BillBillBillBill/Tickeys-linux
+Upstream: https://github.com/BillBillBillBill/Tickeys-linux
 Architecture: amd64
 Installed-Size: 32253
 Description: Tickeys - audio feedback for typing.
-Current fork at: git@github.com:ViktorWalter/Tickeys-linux.git
+Fork: git@github.com:ViktorWalter/Tickeys-linux.git
 "
 
 echo "$deb_control" > $folder_name/DEBIAN/control
