@@ -5,3 +5,8 @@ if which update-icon-caches >/dev/null 2>&1 ; then
 	update-icon-caches /usr/share/icons/ubuntu-mono-dark /usr/share/icons/ubuntu-mono-light
 fi
 # End automatically added section
+
+#prepare the config directory
+echo $HOME/.tickeys
+mkdir -p /home/$SUDO_USER/.tickeys
+chmod 777 /home/$SUDO_USER/.tickeys

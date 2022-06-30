@@ -25,7 +25,7 @@ Priority: extra
 Maintainer: Bill <billo@qq.com>
 Author: Bill <billo@qq.com>
 Build-Depends: debhelper (>= 8.0.0)
-Depends: xdotool(>= 2), gksu
+Depends: xdotool(>= 2)
 Standards-Version: 3.9.2
 Package: tickeys
 Version: $version
@@ -45,7 +45,7 @@ desktop="#!/usr/bin/env xdg-open
 Version=1.0
 Type=Application
 Categories=Application;
-Exec=./usr/local/bin/Tickeys
+Exec=/usr/local/bin/Tickeys
 Icon=/usr/share/Tickeys/icons/tickeys.png
 Terminal=false
 Hidden=false
@@ -66,6 +66,8 @@ chown root $folder_name/usr/share/app-install/desktop/Tickeys.desktop
 
 cp Tickeys $folder_name/usr/local/bin/Tickeys
 ln -s /usr/local/bin/Tickeys $folder_name/usr/bin/tickeys
+
+mkdir -p $
 
 dpkg-deb -z9 -b $folder_name
 

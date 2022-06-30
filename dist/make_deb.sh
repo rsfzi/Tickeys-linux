@@ -15,8 +15,8 @@ mkdir -p $folder_name/DEBIAN
 chmod -R 0755 $folder_name/DEBIAN
 cp postrm $folder_name/DEBIAN/postrm
 chmod -R 0755 $folder_name/DEBIAN/postrm
-cp postrm $folder_name/DEBIAN/postrm
-chmod -R 0755 $folder_name/DEBIAN/postrm
+cp postinst $folder_name/DEBIAN/postinst
+chmod -R 0755 $folder_name/DEBIAN/postinst
 
 cp tickeys.png $folder_name/usr/share/Tickeys/icons/tickeys.png
 
@@ -45,7 +45,7 @@ desktop="#!/usr/bin/env xdg-open
 Version=1.0
 Type=Application
 Categories=Application;
-Exec=./usr/local/bin/Tickeys
+Exec=/usr/local/bin/Tickeys
 Icon=/usr/share/Tickeys/icons/tickeys.png
 Terminal=false
 Hidden=false
