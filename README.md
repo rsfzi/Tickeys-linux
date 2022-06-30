@@ -11,7 +11,7 @@ English Readme: [English Readme](README_en_US.md)
 
 # Screenshot
 
-## v0.3.5
+## v0.3.0
 ![Tickeys v0.3.0](screenshot/tickeys_v0.3.0.png)
 
 %% ## v0.2.5
