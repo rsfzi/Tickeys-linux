@@ -3,7 +3,7 @@
 Instant audio feedback when typing. For Linux.
 
 This fork:
-- adds support for Python3 (via )
+- adds support for Python3 via (https://github.com/ViktorWalter/tickeys-linux-python3)
 - fixed and added requirements
 
 
