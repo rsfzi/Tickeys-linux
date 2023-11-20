@@ -4,3 +4,4 @@ pyinstaller==6.2.0
 sounddevice==0.4.6
 soundfile==0.12.1
 notify2==0.3.1
+python3-xlib==0.15
