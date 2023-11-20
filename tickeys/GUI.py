@@ -21,7 +21,7 @@ import gettext
 from ast import literal_eval
 
 from threading import Thread
-import notify2
+import desktop_notify
 from windowManager import hide_GUI, save_GUI_window_id
 
 
@@ -202,10 +202,10 @@ Builder.load_string(('''
 
 def show_notify(notify_content=""):
     try:
-        notify2.init('Tickeys')
         title = 'Tickeys'
         icon_file_path = os.getcwd() + '/tickeys.png'
-        notify = notify2.Notification(title, notify_content, icon_file_path)
+        notify = desktop_notify.aio.Notify(title, notify_content)
+        notify.set_icon(icon_file_path)
         notify.show()
     except Exception as e:
         logger.exception(e)
