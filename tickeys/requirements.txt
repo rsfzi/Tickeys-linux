@@ -1,7 +1,6 @@
-cython
-kivy
-setuptools
-pyinstaller
-sounddevice
-soundfile
-notify2
+Cython==3.0.5
+Kivy==2.2.1
+pyinstaller==6.2.0
+sounddevice==0.4.6
+soundfile==0.12.1
+notify2==0.3.1
