@@ -42,8 +42,8 @@ class SoundPlayer():
                 new_sound_effect_cache.append((data, fs))
             self.sound_effect_cache = new_sound_effect_cache
 
-        except Exception as e:
-            logger.error('Load sound files fail:' + str(e))
+        except Exception:
+            logger.exception('Load sound files fail:')
 
     def save_config(func):
         def _deco(*arg):
@@ -62,8 +62,8 @@ class SoundPlayer():
             self.key_audio_map = self.schemes[style]['key_audio_map']
             self.non_unique_count = self.schemes[style]['non_unique_count']
             self.cache_sound_effect()
-        except Exception as e:
-            logger.error(e)
+        except Exception:
+            logger.exception("failed to set style:")
 
     @save_config
     def set_volume(self, volume):
